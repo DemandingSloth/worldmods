@@ -1,0 +1,16 @@
+CC BY-SA 4.0 (give attributution, same lisence)
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+All default and farming wooden tools are made by Blockmen (default_tool_woodax, default_tool_woodpick, default_tool_woodshovel, default_tool_woodsword, farming_tool_woodhoe)
+
+Rune hoe is a derived farming texture of the wooden hoe
+Rune swords are a derived default texture of the wooden sword
+Rune axes are a derived default texture of the wooden axe
+Rune pickaxes are a derived defualt texture of the wooden pickaxe
+Rune shovels are a derived default texture of the wooden shovel
