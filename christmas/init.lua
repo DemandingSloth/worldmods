@@ -12,18 +12,13 @@ local data = christmas.data
 minetest.register_craftitem("christmas:candy_cane", {
 	description = "Candy Cane",
 	inventory_image = "christmas_candy_cane.png",
-	on_use = christmas.eat_candy(1)
+	on_use = minetest.item_eat(2)
 })
 minetest.register_craftitem("christmas:mince_pie", {
 	description = "Mince Pie",
 	inventory_image = "christmas_mincepie.png",
 	on_use = minetest.item_eat(6)
 })
-minetest.register_craftitem("christmas:sugar", {
-	description = "Sugar",
-	inventory_image = "christmas_sugar.png",
-})
-
 minetest.register_craftitem("christmas:gingerbread_man", {
 	description = "Gingerbread Man",
 	inventory_image = "christmas_gingerbread_man.png",
@@ -322,7 +317,6 @@ christmas.register_reward("christmas:mince_pie",       {min=6, max=12},  0.3)
 christmas.register_reward("christmas:tree",            {min=0, max=1},   0.15)
 christmas.register_reward("christmas:bauble_red",      {min=0, max=1},   0.15)
 christmas.register_reward("christmas:star",            {min=0, max=1},   0.1)
-christmas.register_reward("christmas:sugar",           {min=1, max=7},   0.36)
 christmas.register_reward("christmas:present",         {min=1, max=2},   0.26)
 
 

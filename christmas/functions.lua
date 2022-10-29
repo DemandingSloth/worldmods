@@ -1,3 +1,5 @@
+-- 10/29/22 commented out functions for candy changing physics
+
 local function xplayer(player)
 	if not player:is_player() then
 		return
@@ -64,7 +66,7 @@ function christmas.random_reward()--Adapted from Dungeontest room selection "dun
 		end
 	end
 end
-
+--[[
 function christmas.eat_candy(hp_change, replace_with_item)
     return function(itemstack, user, pointed_thing) 
 	    local name = user:get_player_name()
@@ -105,15 +107,15 @@ function christmas.eat_candy(hp_change, replace_with_item)
         return minetest.do_item_eat(hp_change, replace_with_item, itemstack, user, pointed_thing)
     end
 end
-
+]]--
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	christmas.players[name] = {}
-	christmas.players[name].candy = 0
+	--christmas.players[name].candy = 0
 	christmas.players[name].hud = {}
 	christmas.players[name].time = 0
 end)
-
+--[[
 local t = 0
 minetest.register_globalstep (function(dtime)
 	t = t + dtime
@@ -150,3 +152,4 @@ minetest.register_globalstep (function(dtime)
 		end
 	end
 end)
+]]--

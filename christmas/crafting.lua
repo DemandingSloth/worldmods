@@ -14,7 +14,7 @@ if depends.default then
 				"farming:flour",
 				"default:apple",
 				"default:blueberries",
-				"christmas:sugar"
+				"farming:sugar"
 			},
 		})
 	end
@@ -51,9 +51,9 @@ if depends.dye then
 	minetest.register_craft({
 		output = "christmas:candy_cane 12",
 		recipe = {
-			{"dye:red","christmas:sugar","dye:white"},
-			{"christmas:sugar","dye:white","christmas:sugar"},
-			{"christmas:sugar","dye:red",""},
+			{"dye:red","farming:sugar","dye:white"},
+			{"farming:sugar","dye:white","farming:sugar"},
+			{"farming:sugar","dye:red",""},
 		},
 	})
 end
