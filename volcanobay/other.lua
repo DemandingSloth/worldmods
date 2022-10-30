@@ -172,3 +172,6 @@ minetest.register_craft({
   }
 })
 end
+if minetest.get_modpath("headlamp") then
+    xdecor:register_repairable("headlamp:headlamp_off")
+end

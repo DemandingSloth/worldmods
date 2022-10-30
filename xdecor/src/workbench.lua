@@ -33,8 +33,8 @@ workbench.defs = {
 	{"stair",	1,  nil			  },
 	{"stair_inner",	1,  nil			  }
 }
-
-local repairable_tools = {"pick", "axe", "shovel", "sword", "hoe", "armor", "shield"}
+--adding 3d armor terminology at end of this table. everything after "shield"
+local repairable_tools = {"pick", "axe", "shovel", "sword", "hoe", "armor", "shield", "boots", "chestplate", "leggings", "helmet"}
 
 local custom_repairable = {}
 function xdecor:register_repairable(item)
