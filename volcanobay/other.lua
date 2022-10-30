@@ -161,3 +161,14 @@ if minetest.get_modpath('shields') ~= nil then
 	}
 })
 end
+
+if minetest.get_modpath("farming") then
+minetest.register_craft({
+  type = "shapeless",
+  output = "farming:jackolantern",
+  recipe = {
+    "default:torch",
+    "farming:pumpkin_8"
+  }
+})
+end
