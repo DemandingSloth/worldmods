@@ -99,7 +99,10 @@ minetest.register_on_joinplayer(function(player)
     
     -- Only show news to players who want to see it
     if (storage:get_int(prefix .. name) == 0) then
-        show_news_formspec(name)
+        --show_news_formspec(name)
+	minetest.after(5, function()
+		show_news_formspec(name)
+	end)
     end
 
     check_for_updates(name)
