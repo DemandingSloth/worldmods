@@ -1,7 +1,7 @@
 [mod] 3d Armor [3d_armor]
 =========================
 
-License Source Code
+License  Source Code
 -------------------
 
 Copyright (C) 2012-2019 stujones11, Stuart Jones <stujones111@gmail.com>
