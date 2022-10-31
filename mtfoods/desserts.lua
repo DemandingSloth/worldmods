@@ -6,11 +6,6 @@ minetest.register_craftitem("mtfoods:dandelion_milk", {
 	on_use = minetest.item_eat(1),
 })
 
-minetest.register_craftitem("mtfoods:sugar", {
-	description = "Sugar",
-	inventory_image = "mtfoods_sugar.png",
-	on_use = minetest.item_eat(1),
-})
 
 minetest.register_craftitem("mtfoods:short_bread", {
 	description = "Short Bread",
@@ -102,23 +97,23 @@ minetest.register_craft({
 	output = "mtfoods:dandelion_milk 2",
 	recipe = {
 		{'','flowers:dandelion_yellow', ''},
-		{'mtfoods:sugar', 'flowers:dandelion_yellow', 'mtfoods:sugar'},
+		{'farming:sugar', 'flowers:dandelion_yellow', 'farming:sugar'},
 		{'', 'vessels:drinking_glass', ''},
 	}
 })
-
+--[[
 minetest.register_craft({
 	type = "shapeless",
-	output = "mtfoods:sugar 3",
+	output = "farming:sugar 3",
 	recipe = {'default:papyrus'}
 })
-
+]]--
 minetest.register_craft({
 	output = "mtfoods:short_bread",
 	recipe = {
 		{'mtfoods:dandelion_milk'},
 		{ing.bread},
-		{'mtfoods:sugar'},
+		{'farming:sugar'},
 	}
 })
 
@@ -126,16 +121,16 @@ minetest.register_craft({
 	output = "mtfoods:cream",
 	recipe = {
 		{'mtfoods:dandelion_milk'},
-		{'mtfoods:sugar'},
+		{'farming:sugar'},
 	}
 })
 
 minetest.register_craft({
 	output = "mtfoods:chocolate 5",
 	recipe = {
-		{'mtfoods:sugar', 'mtfoods:dandelion_milk', 'mtfoods:sugar'},
+		{'farming:sugar', 'mtfoods:dandelion_milk', 'farming:sugar'},
 		{ing.cocoa, ing.cocoa, ing.cocoa},
-		{'mtfoods:sugar', 'mtfoods:dandelion_milk', 'mtfoods:sugar'},
+		{'farming:sugar', 'mtfoods:dandelion_milk', 'farming:sugar'},
 	}
 })
 
@@ -159,9 +154,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "mtfoods:cake",
 	recipe = {
-		{'', 'mtfoods:sugar', ''},
+		{'', 'farming:sugar', ''},
 		{'mtfoods:dandelion_milk', ing.bread, 'mtfoods:dandelion_milk'},
-		{'', 'mtfoods:sugar', ''},
+		{'', 'farming:sugar', ''},
 	}
 })
 
@@ -185,7 +180,7 @@ minetest.register_craft({
 	output = "mtfoods:pie_crust",
 	recipe = {
 		{ing.bread, ing.flour},
-		{ing.flour, 'mtfoods:sugar'},
+		{ing.flour, 'farming:sugar'},
 	}
 })
 

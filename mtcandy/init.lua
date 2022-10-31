@@ -9,6 +9,7 @@ minetest.register_node("mtcandy:sugar_block", {
 	description = "Sugarblock",
 	tiles = {"mtcandy_sugar_block.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -19,9 +20,9 @@ minetest.register_node("mtcandy:sugar_block", {
 minetest.register_craft({
 	output = "mtcandy:sugar_block",
 	recipe = {
-		{"mtfoods:sugar" ,"mtfoods:sugar" ,"mtfoods:sugar"}, 
-		{"mtfoods:sugar" ,"mtfoods:sugar" ,"mtfoods:sugar"}, 
-		{"mtfoods:sugar" ,"mtfoods:sugar" ,"mtfoods:sugar"}
+		{"farming:sugar" ,"farming:sugar" ,"farming:sugar"}, 
+		{"farming:sugar" ,"farming:sugar" ,"farming:sugar"}, 
+		{"farming:sugar" ,"farming:sugar" ,"farming:sugar"}
 	}
 })
 
@@ -34,6 +35,7 @@ minetest.register_node("mtcandy:caramel", {
 	description = "Caramel",
 	tiles = {"mtcandy_caramel.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -56,6 +58,7 @@ minetest.register_node("mtcandy:crosscandy", {
 	description = "Crosscandy",
 	tiles = {"mtcandy_crosscandy.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -82,12 +85,14 @@ minetest.register_node("mtcandy:candyrec_bluecyan", {
 	description = "Candyrec Blue",
 	tiles = {"mtcandy_candyrec_bluecyan.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("mtcandy:candyrec_magenta", {
 	description = "Candyrec Magenta",
 	tiles = {"mtcandy_candyrec_magenta.png"},
+	on_use = minetest.item_eat(2),	
 	groups = {cracky=3,oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -96,6 +101,7 @@ minetest.register_node("mtcandy:candyrec_orange", {
 	description = "Candyrec Orange",
 	tiles = {"mtcandy_candyrec_orange.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -103,6 +109,7 @@ minetest.register_node("mtcandy:candyrec_yellow", {
 	description = "Candyrec Yellow",
 	tiles = {"mtcandy_candyrec_yellow.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -157,6 +164,7 @@ minetest.register_node("mtcandy:dotted_green", {
 	description = "Dotted Green",
 	tiles = {"mtcandy_dotted_green.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -164,6 +172,7 @@ minetest.register_node("mtcandy:dotted_green", {
 	description = "Dotted Green",
 	tiles = {"mtcandy_dotted_green.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -171,6 +180,7 @@ minetest.register_node("mtcandy:dotted_red", {
 	description = "Dotted Red",
 	tiles = {"mtcandy_dotted_red.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -178,6 +188,7 @@ minetest.register_node("mtcandy:dotted_pink", {
 	description = "Dotted Pink",
 	tiles = {"mtcandy_dotted_pink.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -185,6 +196,7 @@ minetest.register_node("mtcandy:dotted_orange", {
 	description = "Dotted Orange",
 	tiles = {"mtcandy_dotted_orange.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -192,6 +204,7 @@ minetest.register_node("mtcandy:dotted_yellow", {
 	description = "Dotted Yellow",
 	tiles = {"mtcandy_dotted_yellow.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -254,6 +267,7 @@ minetest.register_node("mtcandy:peppermint", {
 	description = "Peppermint",
 	tiles = {"mtcandy_peppermint_top.png", "mtcandy_peppermint_top.png", "mtcandy_peppermint_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -262,6 +276,7 @@ minetest.register_node("mtcandy:peppermint_red", {
 	description = "Peppermint Red",
 	tiles = {"mtcandy_peppermint_red.png", "mtcandy_peppermint_red_bott.png", "mtcandy_peppermint_red_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -269,6 +284,7 @@ minetest.register_node("mtcandy:peppermint_cyan_top", {
 	description = "Peppermint Cyan",
 	tiles = {"mtcandy_peppermint_cyan_top.png", "mtcandy_peppermint_cyan_bott.png", "mtcandy_peppermint_cyan_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -276,6 +292,7 @@ minetest.register_node("mtcandy:peppermint_green_top", {
 	description = "Peppermint Green",
 	tiles = {"mtcandy_peppermint_green_top.png", "mtcandy_peppermint_green_bott.png", "mtcandy_peppermint_green_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -283,6 +300,7 @@ minetest.register_node("mtcandy:peppermint_magenta_top", {
 	description = "Peppermint Magenta",
 	tiles = {"mtcandy_peppermint_magenta_top.png", "mtcandy_peppermint_magenta_bott.png", "mtcandy_peppermint_magenta_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -290,6 +308,7 @@ minetest.register_node("mtcandy:peppermint_orange_top", {
 	description = "Peppermint Orange",
 	tiles = {"mtcandy_peppermint_orange_top.png", "mtcandy_peppermint_orange_bott.png", "mtcandy_peppermint_orange_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -297,6 +316,7 @@ minetest.register_node("mtcandy:peppermint_yellow_top", {
 	description = "Peppermint Yellow",
 	tiles = {"mtcandy_peppermint_yellow_top.png", "mtcandy_peppermint_yellow_bott.png", "mtcandy_peppermint_yellow_side.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -377,6 +397,7 @@ minetest.register_node("mtcandy:spiral_blue", {
 	description = "Spiral Blue",
 	tiles = {"mtcandy_spiral_blue.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -384,6 +405,7 @@ minetest.register_node("mtcandy:spiral_purple", {
 	description = "Spiral Purple",
 	tiles = {"mtcandy_spiral_purple.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -391,6 +413,7 @@ minetest.register_node("mtcandy:spiral_yellow", {
 	description = "Spiral Yellow",
 	tiles = {"mtcandy_spiral_yellow.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -435,6 +458,7 @@ minetest.register_node("mtcandy:striped_pink_brown", {
 	description = "Striped Pink Brown",
 	tiles = {"mtcandy_striped_pink_brown.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -442,6 +466,7 @@ minetest.register_node("mtcandy:striped_pink_white", {
 	description = "Striped Pink White",
 	tiles = {"mtcandy_striped_pink_white.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -449,6 +474,7 @@ minetest.register_node("mtcandy:striped_pink_yellow", {
 	description = "Striped Pink Yellow",
 	tiles = {"mtcandy_striped_pink_yellow.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -456,6 +482,7 @@ minetest.register_node("mtcandy:striped_purple_green", {
 	description = "Striped Purple Green",
 	tiles = {"mtcandy_striped_purple_green.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -463,6 +490,7 @@ minetest.register_node("mtcandy:striped_lime_green", {
 	description = "Striped Lime Green",
 	tiles = {"mtcandy_striped_lime_green.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -525,6 +553,7 @@ minetest.register_node("mtcandy:milk_choco", {
 	description = "Milk Chocolate",
 	tiles = {"mtcandy_milk_choco.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -532,6 +561,7 @@ minetest.register_node("mtcandy:white_choco", {
 	description = "White Chocolate",
 	tiles = {"mtcandy_white_choco.png"},
 	groups = {cracky=3,oddly_breakable_by_hand=3},
+	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_stone_defaults(),
 })
 
