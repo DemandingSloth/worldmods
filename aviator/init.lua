@@ -1,5 +1,8 @@
 -- aviator, place block and fly, now also TNT resistant
-
+-- Register Privilege to allow players to keep fly
+minetest.register_privilege('permafly', {
+	description = 'Allows player to retain fly',
+})
 aviation = {}
 aviator_hud_id = {}
 
@@ -129,11 +132,20 @@ else
 		output = 'aviator:aviator',
 		recipe = {
 			{"default:gold_ingot", 'default:diamond', "default:gold_ingot"},
-			{'default:diamond', "default:diamondblock", 'default:diamond'},
+			{'default:diamond', "default:diamondblock", "default:diamond"},
 			{"default:gold_ingot", 'default:diamond', "default:gold_ingot"},
 		}
 	})
 end
+
+minetest.register_craft({
+	output = 'aviator:super_aviator',
+	recipe = {
+		{"aviator:aviator", 'aviator:aviator', "aviator:aviator"},
+		{"aviator:aviator", 'aviator:aviator', "aviator:aviator"},
+		{"aviator:aviator", 'aviator:aviator', "aviator:aviator"},
+	}
+})
 
 
 
@@ -213,6 +225,50 @@ minetest.register_node("aviator:aviator", {
 	end	
 })
 
+-- Register Super Aviator which permanently grants fly. 
+
+minetest.register_node("aviator:super_aviator", {
+	description = "aviation device, permanent fly",
+	groups = {not_in_creative_inventory=1},
+	tiles = {"aviator_super_aviator_top.png",
+		"aviator_super_aviator_bottom.png",
+		"aviator_super_aviator_side.png",
+		"aviator_super_aviator_side.png",
+		"aviator_super_aviator_side.png",
+		"aviator_super_aviator_side.png"},
+	is_ground_content = false,
+	diggable = false,
+	liquids_pointable = true,
+	light_source = 12,
+	node_placement_prediction = "",			-- important to avoid double placement
+	
+	on_blast = function() end, -- TNT resistant
+
+	on_place = function(itemstack, placer, pointed_thing)
+		local name = placer:get_player_name()
+		local privs = minetest.get_player_privs(name)
+		if privs.fly ~= true and privs.permafly ~= true then
+			privs.fly = true
+			privs.permafly = true
+			minetest.set_player_privs(name, privs)
+			minetest.chat_send_player(name,core.colorize('#eeee00', "Permantent Fly Granted."))
+			
+		elseif privs.fly ~= true and privs.permafly == true then
+		    privs.fly = true
+			minetest.set_player_privs(name, privs)
+			minetest.chat_send_player(name,core.colorize('#eeee00', "Fly restored."))
+			
+		else
+		    minetest.chat_send_player(name,core.colorize('#eeee00', "Something went wrong. Please contact an Admin."))
+		end
+	end
+})	
+			
+			
+	
+
+		
+
 
 
 minetest.register_globalstep(function(dtime)
@@ -284,7 +340,7 @@ minetest.register_on_joinplayer(function(player)
 	local privs = minetest.get_player_privs(name)
 	
 
-	if privs.fly and not privs.server then
+	if privs.fly and not privs.permafly then
 		privs.fly = nil
 		minetest.set_player_privs(name, privs)
 	end
