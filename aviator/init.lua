@@ -237,7 +237,7 @@ minetest.register_node("aviator:super_aviator", {
 		"aviator_super_aviator_side.png",
 		"aviator_super_aviator_side.png"},
 	is_ground_content = false,
-	diggable = false,
+	diggable = true,
 	liquids_pointable = true,
 	light_source = 12,
 	node_placement_prediction = "",			-- important to avoid double placement
@@ -247,20 +247,26 @@ minetest.register_node("aviator:super_aviator", {
 	on_place = function(itemstack, placer, pointed_thing)
 		local name = placer:get_player_name()
 		local privs = minetest.get_player_privs(name)
+		minetest.item_eat(30)
 		if privs.fly ~= true and privs.permafly ~= true then
 			privs.fly = true
 			privs.permafly = true
+			itemstack:take_item()
+			
 			minetest.set_player_privs(name, privs)
 			minetest.chat_send_player(name,core.colorize('#eeee00', "Permantent Fly Granted."))
-			
+			return itemstack
 		elseif privs.fly ~= true and privs.permafly == true then
 		    privs.fly = true
 			minetest.set_player_privs(name, privs)
-			minetest.chat_send_player(name,core.colorize('#eeee00', "Fly restored."))
+			itemstack:take_item()
 			
+			minetest.chat_send_player(name,core.colorize('#eeee00', "Fly restored."))
+			return itemstack
 		else
 		    minetest.chat_send_player(name,core.colorize('#eeee00', "Something went wrong. Please contact an Admin."))
 		end
+		
 	end
 })	
 			
