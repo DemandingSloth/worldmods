@@ -141,6 +141,10 @@ minetest.register_node("currency:barter", {
 		inv:set_size("pl1", 12) -- 3*4
 		inv:set_size("pl2", 12) -- 3*4
 	end,
+	on_dig = function(pos)
+	    local meta = minetest.get_meta(pos)
+		barter.chest.cancel(meta)
+		end,
 	on_receive_fields = function(pos, formname, fields, sender)
 		local meta = minetest.get_meta(pos)
 		barter.chest.start_timer(pos, meta)
