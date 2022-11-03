@@ -16,7 +16,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with easter.  If not, see <http://www.gnu.org/licenses/>.
 --]]
-
+-- The line below goes back in table when striped egg is fixed. 
+	--'easter:egg_striped', -- random gravity -- uncommon 7
 local egglist = {
 	'easter:egg_white', -- normal resets back to normal -- start common 1
 	'easter:egg_food', -- just food 2
@@ -24,7 +25,6 @@ local egglist = {
 	'easter:egg_mario', -- mario jump 4
 	'easter:egg_speed', -- random speed variable 5
 	'easter:egg_checkered', -- common items -- end common list 6
-	'easter:egg_striped', -- random gravity -- uncommon 7
 	'easter:egg_zig_zag', -- random teleportation 8  
 	'easter:egg_night', -- make player see either night or day w/o changing server time -- end uncommon 9
 	'easter:egg_diamond', -- give semi rare things -- rare 10
@@ -46,13 +46,13 @@ local randomegg = function()
 	local roll = math.random(0,rarity*100)
 	if roll <= 100 then
 		if roll < 40 then -- 40% chance
-			return egglist[math.random(1, 7)]
+			return egglist[math.random(1, 6)]
 		elseif roll < 90 then -- 50% chance
-			return egglist[math.random(7, 9)]
+			return egglist[math.random(6, 8)]
 		elseif roll < 95 then -- 5% chance
-			return egglist[math.random(10, 11)]
+			return egglist[math.random(9, 10)]
 		else -- 6% chance
-			return egglist[math.random(12, 13)]
+			return egglist[math.random(11, 12)]
 		end
 	end
 end
