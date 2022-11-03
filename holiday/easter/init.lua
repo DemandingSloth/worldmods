@@ -34,7 +34,7 @@ local egglist = {
 }
 
 local randomegg = function()
-	local rarity = 25
+	local rarity = 2500
 	local year = os.date('*t').year
 	local march22 = os.time({year = year, month = 03, day = 22, hour = 0 })
 	local april25 = os.time({year = year, month = 04, day = 25, hour = 24})
