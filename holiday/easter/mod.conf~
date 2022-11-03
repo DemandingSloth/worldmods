@@ -1,0 +1,6 @@
+name = christmas_volcano_bay	
+title = christmas_volcano_bay
+depends = default, dye, mtfoods
+optional_depends = farming, moreores
+description = Christmas mod for volcanobay
+license = GNU GPL
