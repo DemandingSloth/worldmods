@@ -31,7 +31,8 @@ local bonemeal = minetest.get_modpath("bonemeal")
 local mobs = minetest.get_modpath("mobs")
 local mobs_animal = minetest.get_modpath("mobs_animal")
 local eth = minetest.get_modpath("ethereal")
-
+-- Add support for moreblocks
+local moreblocks = minetest.get_modpath("moreblocks")
 -- ys_voxel compatibility
 local ys_edibles = minetest.get_modpath("ys_edibles")
 local ys_charcoal = minetest.get_modpath("ys_charcoal")
@@ -479,7 +480,13 @@ end
 
 --Stonework
 -- no modpath, can't be used. -popopoka
+-- DemandingSloth: modpath *should* be volcanobay
 --include(plus, 'volcanobay:setts')
+
+-- add support for moreblocks
+if moreblocks then
+    include(plus, "moreblocks:cobble_compressed")
+end
 
 
 
