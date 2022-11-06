@@ -39,7 +39,7 @@ for _, h in ipairs(unifieddyes.HUES_EXTENDED) do
 				minetest.register_craftitem(":dye:"..val..hue, {
 					description = S(desc),
 					inventory_image = "unifieddyes_dye.png^[colorize:#"..color..":200",
-					groups = { dye=1, not_in_creative_inventory=1 },
+					groups = { dye=1, },-- remove temporary not_in_creative_inventory=1 
 				})
 			end
 		end
@@ -61,7 +61,7 @@ for _, h in ipairs(unifieddyes.HUES_EXTENDED) do
 			minetest.register_craftitem(":dye:"..val..hue.."_s50", {
 				description = S(desc.." (low saturation)"),
 				inventory_image = "unifieddyes_dye.png^[colorize:#"..ccolor..":200",
-				groups = { dye=1, not_in_creative_inventory=1 },
+				groups = { dye=1, }, -- remove temporary not_in_creative_inventory=1 
 			})
 			minetest.register_alias("unifieddyes:"..val..hue.."_s50", "dye:"..val..hue.."_s50")
 		end
@@ -81,7 +81,7 @@ for y = 1, 14 do -- colors 0 and 15 are black and white, default dyes
 		minetest.register_craftitem(":dye:"..name, {
 			description = S(desc),
 			inventory_image = "unifieddyes_dye.png^[colorize:#"..rgb..":200",
-			groups = { dye=1, not_in_creative_inventory=1 },
+			groups = { dye=1,  }, -- remove temporarily not_in_creative_inventory=1
 		})
 		minetest.register_alias("unifieddyes:"..name, "dye:"..name)
 	end
@@ -99,7 +99,7 @@ if minetest.get_modpath("dye") then
 	minetest.register_craftitem(":dye:light_grey", {
 		description = S("Light grey Dye"),
 		inventory_image = "unifieddyes_dye.png^[colorize:#cccccc:200",
-		groups = { dye=1, not_in_creative_inventory=1 },
+		groups = { dye=1,  },--remove temporarily not_in_creative_inventory=1
 	})
 end
 

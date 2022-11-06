@@ -175,3 +175,27 @@ end
 if minetest.get_modpath("headlamp") then
     xdecor:register_repairable("headlamp:headlamp_off")
 end
+
+--add a few requested recipes
+minetest.register_craft({
+	type = "shapeless",
+	output = "colouredstonebricks:purple",
+	recipe = {
+	  "default:stonebrick",
+	  "dye:violet"
+	}
+})
+
+if minetest.get_modpath("simple_protection") then
+	minetest.register_craft({
+		type = "shapeless",
+		output = "simple_protection:chest",
+		recipe = {
+		  "default:chest_locked",
+		  "simple_protection:claim"
+		}
+	})
+end
+
+
+
