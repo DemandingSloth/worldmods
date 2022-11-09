@@ -52,8 +52,9 @@ end
 
 local function show_news_formspec(name)
     local player_info = minetest.get_player_information(name)
-    local language_code = player_info.lang_code
-
+	if player_info ~= nil then
+        local language_code = player_info.lang_code
+    end
     if (language_code == "") then
         language_code = "en"
     end
