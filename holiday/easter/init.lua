@@ -25,6 +25,7 @@ local egglist = {
 	'easter:egg_mario', -- mario jump 4
 	'easter:egg_speed', -- random speed variable 5
 	'easter:egg_checkered', -- common items -- end common list 6
+	'easter:egg_striped', -- random gravity -- uncommon 7
 	'easter:egg_zig_zag', -- random teleportation 8  
 	'easter:egg_night', -- make player see either night or day w/o changing server time -- end uncommon 9
 	'easter:egg_diamond', -- give semi rare things -- rare 10
@@ -147,7 +148,10 @@ minetest.register_craftitem('easter:egg_black', {
 	groups = {not_in_creative_inventory = 1,},
 	-- black egg is dangerous and unpredictable
 	on_use = function(itemstack, user)
-		if math.random(0,1) == 1 then
+	   	if user.is_fake_player then
+			return nil
+		end
+	    if math.random(0,1) == 1 then
 			user:set_hp(20)
 			minetest.chat_send_player(user:get_player_name(), 'You have been healed.')
 		else
@@ -155,6 +159,7 @@ minetest.register_craftitem('easter:egg_black', {
 		end
 		itemstack:take_item()
 		return itemstack
+		
 	end
 })
 
@@ -164,6 +169,9 @@ minetest.register_craftitem('easter:egg_checkered', {
 	-- gift random common item
 	groups = {not_in_creative_inventory = 1,},
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	    
 		local item = common[math.random(1, #common)]
 		local amount = commondistribution[math.random(1, #commondistribution)]
 		if item == 'tool' then
@@ -186,6 +194,9 @@ minetest.register_craftitem('easter:egg_diamond', {
 	groups = {not_in_creative_inventory = 1,},
 	--gift uncommon object
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end
 		local item, amount = uncommon[math.random(1, #uncommon)], 1
 		if item == 'tool' then
 			item = uncommontools[math.random(1, #uncommontools)]
@@ -210,6 +221,9 @@ minetest.register_craftitem('easter:egg_speed', {
 	groups = {not_in_creative_inventory = 1,},
 	--speed
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end
 		-- Pick new speed in [0.2,0.9] or [1.1,3]
 		local random
 		if math.random(0,2) == 0 then
@@ -234,6 +248,9 @@ minetest.register_craftitem('easter:egg_mario', {
 	groups = {not_in_creative_inventory = 1,},
 	--Mario
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		user:set_physics_override({jump = 1.7})
 		minetest.chat_send_player(user:get_player_name(),
 			'So this Egg makes you jump like Mario!. cool')
@@ -248,6 +265,9 @@ minetest.register_craftitem('easter:egg_mese', {
 	groups = {not_in_creative_inventory = 1,},
 	--gift rare item
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		local item, amount = rare[math.random(1, #rare)], 1
 		if item == 'tool' then
 			item = raretools[math.random(1, #raretools)]
@@ -264,6 +284,9 @@ minetest.register_craftitem('easter:egg_space', {
 	groups = {not_in_creative_inventory = 1,},
 	-- space egg gives moon boots
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		user:set_physics_override({gravity = 0.165})
 		minetest.chat_send_player(user:get_player_name(),
 			'Wow! That egg gave you Moon Boots!')
@@ -271,13 +294,16 @@ minetest.register_craftitem('easter:egg_space', {
 		return itemstack
 	end
 })
---[[
+
 minetest.register_craftitem('easter:egg_striped', {
 	description = 'Easter Egg Striped',
 	inventory_image = 'easter_egg_striped.png',
 	groups = {not_in_creative_inventory = 1,},
 	-- Random Gravity
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		-- Pick new gravity in [0.1,0.9] or [1.1,10]
 		local random
 		if math.random(0,1) == 0 then
@@ -288,7 +314,11 @@ minetest.register_craftitem('easter:egg_striped', {
 		user:set_physics_override({gravity = random})
 		minetest.chat_send_player(user:get_player_name(),
 			'This egg just set your Gravity to : '..random)
-		local normal = function(random)
+		itemstack:take_item()
+		return itemstack
+	end
+})			
+--[[		local normal = function(random)
 			if random > 2 then
 				user:set_physics_override({gravity = 1})
 				minetest.chat_send_player(user:get_player_name(),
@@ -297,17 +327,20 @@ minetest.register_craftitem('easter:egg_striped', {
 			end
 		end
 		minetest.after(30, normal(random))
-		itemstack:take_item()
-		return itemstack
+		
 	end
-})
+
 ]]--
+
 minetest.register_craftitem('easter:egg_time', {
 	description = 'Easter Egg time',
 	inventory_image = 'easter_egg_time.png',
 	groups = {not_in_creative_inventory = 1,},
 	-- set day
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		minetest.set_timeofday(0.23)
 		minetest.chat_send_player(user:get_player_name(),
 			'This Egg must be magic! it made it Day Time!!!!')
@@ -322,6 +355,9 @@ minetest.register_craftitem('easter:egg_white', {
 	groups = {not_in_creative_inventory = 1,},
 	-- set physics to normal
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		user:set_physics_override(1, 1, 1)
 		user:override_day_night_ratio(nil)
 		minetest.chat_send_player(user:get_player_name(),
@@ -337,23 +373,29 @@ minetest.register_craftitem('easter:egg_night', {
 	groups = {not_in_creative_inventory = 1,},
 	-- code for night function modified from Lightcorrect mod by mootpoint
 	on_use = function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		local light = (minetest.get_timeofday())
 		if light < 0.25 or light > 0.75 then
-			user:override_day_night_ratio((1))
+		    user:override_day_night_ratio((1))
 		else
 			user:override_day_night_ratio((0))
 		end
 		itemstack:take_item()
 		return itemstack
+	
 	end,
 })
-
 minetest.register_craftitem('easter:egg_zig_zag', {
 	description = 'Easter Egg Zig Zag',
 	inventory_image = 'easter_egg_zig_zag.png',
 	groups = {not_in_creative_inventory = 1,},
 	-- Teleport to random location.
 	on_use =  function(itemstack, user)
+	   	if user.is_fake_player then
+			return nil
+		end	
 		local place = math.random(1, 10)
 		if place == 1 then
 			user:setpos( { x=45, y=6, z=168 } ) -- behind spawn mine
@@ -384,6 +426,7 @@ minetest.register_craftitem('easter:egg_zig_zag', {
 minetest.override_item('default:stone', {
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		local egg = randomegg(egglist)
+	
 			if egg ~= nil then
 				local inv = digger:get_inventory()
 				if inv:room_for_item('main', egg) then
